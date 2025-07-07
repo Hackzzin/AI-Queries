@@ -1,0 +1,11 @@
+```
+SELECT 
+    MIN(s.salary) AS lowest_salary,
+    MAX(s.salary) AS highest_salary
+FROM 
+    salaries s
+JOIN 
+    dept_manager dm ON s.emp_no = dm.emp_no
+WHERE 
+    dm.dept_no IS NOT NULL;
+```

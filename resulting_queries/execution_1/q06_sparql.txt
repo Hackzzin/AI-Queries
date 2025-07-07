@@ -1,0 +1,16 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT (COUNT(?emp) AS ?maleCount) AS ?count
+WHERE {
+  ?emp a owl:Employee;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasGender> ?gender.
+  FILTER (?gender = <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#M})
+} UNION {
+SELECT (COUNT(?emp) AS ?femaleCount) AS ?count
+WHERE {
+  ?emp a owl:Employee;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasGender> ?gender.
+  FILTER (?gender = <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#F})
+}}

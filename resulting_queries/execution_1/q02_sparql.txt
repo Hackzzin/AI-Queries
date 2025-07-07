@@ -1,0 +1,12 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?salary
+WHERE {
+  ?employee a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee>;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#salary> ?salary.
+  FILTER (?salary xsd:integer).
+}
+ORDER BY DESC(?salary) LIMIT 1,
+        ASC(?salary) LIMIT 1

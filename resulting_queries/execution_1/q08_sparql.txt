@@ -1,0 +1,15 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?emp_no ?dept_name ?salary
+WHERE {
+  ?employee a owl:Class ;
+    owl:someValuesFrom <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> .
+  ?department a owl:Class ;
+    rdfs:subClassOf <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department> .
+  ?employee <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasDeptNumber> ?department .
+  ?department <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#dept_no> ?dept_name .
+  ?employee <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#emp_no> ?emp_no .
+  ?employee <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#salary> ?salary .
+}

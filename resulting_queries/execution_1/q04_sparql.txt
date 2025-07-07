@@ -1,0 +1,14 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?min_salary ?max_salary
+WHERE {
+  ?dept a owl:Class ;
+       rdfs:subClassOf <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> .
+  ?dept ?has_manager ?manager .
+  ?manager <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasEmployeeNumber> ?emp_no .
+  ?manager <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#salary> ?salary .
+  FILTER (?dept = <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> && isLiteral(?min_salary) && isLiteral(?max_salary))
+  BIND ((MIN(?salary) as ?min_salary), (MAX(?salary) as ?max_salary))
+}

@@ -1,0 +1,12 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?emp_no ?first_name ?last_name ?birth_date
+WHERE {
+  ?employee a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee>;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#birth_date> ?birth_date;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#from_date> ?from_date.
+  FILTER (?from_date < xsd:dateTime("1986-01-01T00:00:00"))
+}
+```

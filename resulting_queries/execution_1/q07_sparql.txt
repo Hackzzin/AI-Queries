@@ -1,0 +1,14 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?dept_name (AVG(?salary) AS ?avg_salary) (COUNT(DISTINCT ?title) AS ?num_titles)
+WHERE {
+  ?dept a owl:Class .
+  ?dept <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#dept_name> ?dept_name .
+  ?emp a owl:Class .
+  ?emp <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasDeptNumber> ?dept .
+  ?emp <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#salary> ?salary .
+  ?emp <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#title> ?title .
+  GROUP BY ?dept_name
+}

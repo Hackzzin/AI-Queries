@@ -1,0 +1,14 @@
+```
+SELECT 
+  e.first_name,
+  e.last_name,
+  d.dept_name,
+  s.salary
+FROM 
+  salaries s
+  JOIN employees e ON s.emp_no = e.emp_no
+  JOIN dept_emp de ON s.emp_no = de.emp_no
+  JOIN departments d ON de.dept_no = d.dept_no
+ORDER BY 
+  e.first_name, e.last_name;
+```
