@@ -1,0 +1,151 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees> a owl:Ontology .
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasDeptNumber>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentEmployee> ;
+  rdfs:range <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department> .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasEmployeeNumber>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentEmployee>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title> ;
+  rdfs:range <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasGender>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> ;
+  rdfs:range <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Gender> .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasManager>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  owl:inverseOf <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#isManagerOf> ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department> ;
+  rdfs:range <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#isManagerOf>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentEmployee>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> ;
+  rdfs:range <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department> .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#birth_date>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> ;
+  rdfs:range xsd:dateTime .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#dept_name>
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department> ;
+  rdfs:range xsd:string .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#dept_no>
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department> ;
+  rdfs:range xsd:string .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#emp_no>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> ;
+  rdfs:range xsd:integer .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#first_name>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> ;
+  rdfs:range xsd:string .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#from_date>
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentEmployee>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title> ;
+  rdfs:range xsd:dateTime .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hire_date>
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> ;
+  rdfs:range xsd:dateTime .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#last_name>
+  a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> ;
+  rdfs:range xsd:string .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#salary>
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary> ;
+  rdfs:range xsd:integer .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#title>
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title> ;
+  rdfs:range xsd:string .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#to_date>
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf owl:topDataProperty ;
+  rdfs:domain <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentEmployee>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title> ;
+  rdfs:range xsd:dateTime .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department>
+  a owl:Class ;
+  owl:disjointWith <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentEmployee>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentEmployee> a owl:Class .
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> a owl:Class .
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee>
+  a owl:Class ;
+  owl:disjointWith <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary>, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title> .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Gender>
+  a owl:Class ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:oneOf (
+     <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#F>
+     <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#M>
+   )
+  ] .
+
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary> a owl:Class .
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title> a owl:Class .
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#F> a owl:NamedIndividual .
+<http://www.semanticweb.org/usuario/ontologies/2025/6/employees#M> a owl:NamedIndividual, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Gender> .
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department>
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary>
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentEmployee>
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee>
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary>
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager>
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee>
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary>
+   <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title>
+ ) .
