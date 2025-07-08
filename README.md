@@ -13,14 +13,6 @@ The code's objective is to generate prompts through the use of Meta's open-sourc
 
 ### How to run
 
-This project uses [Ollama](https://ollama.com/) to run Meta's open-source **LLaMA 3** model locally, which is then accessed by a Python script to generate **SQL** and **SPARQL** queries based on 9 natural language questions.
-
-Each question will generate two output files:
-- One with a **SQL query** (based on the `sql_ddl.txt` file)
-- One with a **SPARQL query** (based on the `employee.ttl` ontology)
-
----
-
 #### 1. Requirements
 
 - Python 3.8 or higher
@@ -52,6 +44,7 @@ Each question will generate two output files:
    ```bash
    ollama run llama3
 
+---
 #### 3. Running genQuery.py
 
 Run 
