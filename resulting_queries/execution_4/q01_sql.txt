@@ -1,4 +1,1 @@
-SELECT d.dept_name, e.first_name, e.last_name 
-FROM departments d 
-JOIN dept_manager m ON d.dept_no = m.dept_no 
-JOIN employees e ON m.emp_no = e.emp_no;
+SELECT dept_name FROM departments;

@@ -5,19 +5,18 @@ from pathlib import Path
 # Paths
 base_dir = Path(__file__).parent
 resources = base_dir / "resources"
-output_dir = base_dir / "resulting_queries/execution_5"
+output_dir = base_dir / "resulting_queries"
 output_dir.mkdir(exist_ok=True)
 
 # Load input files
 sql_ddl = (resources / "sql_ddl.txt").read_text(encoding="utf-8")
 ttl_ontology = (resources / "employee.ttl").read_text(encoding="utf-8")
-# shared_text = (resources / "shared_context.txt").read_text(encoding="utf-8") if (resources / "shared_context.txt").exists() else ""
 
 # LLaMA Model Config (Ollama)
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "llama3"
 
-perguntas = ["Quais são os nomes de todos os departamentos e seus respectivos gerentes?",
+perguntas = ["Quais são os nomes de todos os departamentos?",
              "Qual é o maior e o menor salário?",
              "Liste todos os empregados contratados antes de 1986.",
              "Qual é o intervalo salarial entre os gerentes?",

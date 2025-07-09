@@ -1,12 +1,9 @@
 ```
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?dept ?manager
+SELECT ?deptName
 WHERE {
-  ?dept a owl:Class .
-  ?dept a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department> .
-  ?manager a owl:Class .
-  ?manager a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> .
-  ?dept aowl:hasManager ?manager .
+  ?dept a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department> ;
+       <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#dept_name> ?deptName .
 }
