@@ -1,0 +1,11 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?employee ?dept_no ?salary
+WHERE {
+  ?employee owl:hasDeptNumber ?dept_no .
+  ?employee owl:hasSalary ?salary .
+  FILTER (?salary = ?salary)
+}
+ORDER BY ?employee ?dept_no ?salary

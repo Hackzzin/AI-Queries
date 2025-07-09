@@ -1,0 +1,13 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT (count(?emp) as ?hommes)
+       (count(?emp) FILTER (?gender = <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#M>) as ?homens)
+       (count(?emp) FILTER (?gender = <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#F>) as ?mulheres)
+
+WHERE {
+  ?emp a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee>;
+       <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasGender> ?gender;
+}
+```

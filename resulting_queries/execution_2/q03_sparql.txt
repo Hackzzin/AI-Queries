@@ -1,0 +1,14 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?emp_no ?first_name ?last_name ?birth_date
+WHERE {
+  ?employee a owl:Class .
+  ?employee owl:hasEmpNo ?emp_no .
+  ?employee owl:hasFirstName ?first_name .
+  ?employee owl:hasLastName ?last_name .
+  ?employee owl:hasBirthDate ?birth_date .
+  FILTER (?birth_date < "1986-01-01T00:00:00"^^xsd:dateTime)
+}
+```

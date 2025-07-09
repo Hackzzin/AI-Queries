@@ -1,0 +1,14 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?minSalary ?maxSalary
+WHERE {
+  ?manager a owl:Class;
+    rdfs:subClassOf <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager>.
+  ?salary a owl:DatatypeProperty;
+    rdfs:domain ?manager.
+  ?salary xsd:integer .
+  MIN(?salary) as ?minSalary
+  MAX(?salary) as ?maxSalary
+}

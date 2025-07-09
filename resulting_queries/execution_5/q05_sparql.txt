@@ -1,0 +1,15 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT (COUNT(DISTINCT ?class) AS ?count)
+WHERE {
+  ?class a owl:Class .
+  FILTER (?class NOT IN (
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department>,
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary>,
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title>,
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Gender>
+  ))
+}
+```

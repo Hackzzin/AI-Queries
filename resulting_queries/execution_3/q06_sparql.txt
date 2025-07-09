@@ -1,0 +1,16 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT (COUNT(?e) AS ?countMale), (COUNT(?f) AS ?countFemale)
+WHERE {
+  ?e a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> .
+  ?e <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasGender> ?g .
+  FILTER(?g = <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#M>). 
+  ?maleEmployee ?e .
+
+  ?f a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> .
+  ?f <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasGender> ?g .
+  FILTER(?g = <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#F>). 
+  ?femaleEmployee ?f .
+}

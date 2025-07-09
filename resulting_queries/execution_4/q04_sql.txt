@@ -1,0 +1,3 @@
+SELECT MIN(s.salary) AS min_salary, MAX(s.salary) AS max_salary
+FROM salaries s
+JOIN dept_manager dm ON s.emp_no = dm.emp_no;

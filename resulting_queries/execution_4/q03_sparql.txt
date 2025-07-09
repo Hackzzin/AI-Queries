@@ -1,0 +1,16 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?emp_no ?first_name ?last_name ?birth_date
+WHERE {
+  ?employee a owl:Class ;
+    owl:hasDataProperty ?dept_no, ?salary, ?title .
+  ?department a owl:Class ;
+    rdfs:label ?dept_name .
+  FILTER (?birth_date < "1986-01-01"^^xsd:dateTime) .
+  BIND (?employee as ?emp)
+  SERVICE wikibase:queryRewriter {
+    ?emp owl:hasDataProperty ?emp_no, ?first_name, ?last_name, ?birth_date .
+  }
+}

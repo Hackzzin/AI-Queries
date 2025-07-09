@@ -1,0 +1,6 @@
+SELECT e.first_name, e.last_name, s.salary
+FROM employees e
+JOIN dept_manager dm ON e.emp_no = dm.emp_no
+JOIN salaries s ON e.emp_no = s.emp_no AND '1991-12-31' > s.to_date
+WHERE dm.from_date < '1991-01-01'
+ORDER BY e.first_name, e.last_name;

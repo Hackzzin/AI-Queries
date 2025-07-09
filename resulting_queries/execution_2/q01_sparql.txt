@@ -1,0 +1,12 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?dept ?manager
+WHERE {
+  ?dept a owl:Class .
+  ?dept a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department> .
+  ?manager a owl:Class .
+  ?manager a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> .
+  ?dept aowl:hasManager ?manager .
+}

@@ -1,0 +1,13 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?dept_name ?manager
+WHERE {
+  ?dept a owl:Class ;
+        rdfs:subClassOf <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department> .
+  ?dept ?hasDeptNumber ?dept_no .
+  ?dept ?has_manager ?manager .
+  ?manager a owl:NamedIndividual, <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> .
+}
+```

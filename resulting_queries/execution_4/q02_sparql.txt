@@ -1,0 +1,7 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT (MAX(?salary) AS ?max_salary) (MIN(?salary) AS ?min_salary)
+WHERE {
+  ?e a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee>;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasSalary> ?salary.
+}

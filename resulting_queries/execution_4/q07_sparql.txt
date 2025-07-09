@@ -1,0 +1,16 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?dept_name, ?title, AVG(?salary ASxsd:integer) as avg_salary
+WHERE {
+  ?emp a owl:Employee .
+  ?emp employees:hasDeptNumber ?dept .
+  ?dept rdfs:label ?dept_name .
+  ?emp employees:hasTitle ?title .
+  ?emp employees:salary ?salary .
+  FILTER (?dept = ?dept AND ?emp = ?title)
+}
+GROUP BY ?dept_name, ?title
+ORDER BY ?dept_name ASC, ?title ASC

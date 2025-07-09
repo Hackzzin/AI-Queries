@@ -1,0 +1,3 @@
+SELECT COUNT(CASE WHEN gender = 'M' THEN 1 ELSE NULL END) AS mens,
+       COUNT(CASE WHEN gender = 'F' THEN 1 ELSE NULL END) AS femininos
+FROM employees;

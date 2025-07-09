@@ -1,0 +1,25 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?minSalary ?maxSalary
+WHERE {
+  ?deptManager a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> .
+  ?deptManager <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasEmployeeNumber> ?employeeNumber .
+  ?employee a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> .
+  ?employee <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasEmployeeNumber> ?employeeNumber .
+  ?salary a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary> .
+  ?salary <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasSalary> ?value .
+  FILTER(?value >= (SELECT ?min FROM { 
+    ?deptManager a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> .
+    ?salary a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary> .
+    ?salary <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasSalary> ?minValue .
+    FILTER(?value = ?minValue)
+  } LIMIT 1))
+  FILTER(?value <= (SELECT ?max FROM { 
+    ?deptManager a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> .
+    ?salary a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary> .
+    ?salary <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasSalary> ?maxValue .
+    FILTER(?value = ?maxValue)
+  } LIMIT 1))
+  BIND (?minValue AS ?minSalary) 
+  BIND (?maxValue AS ?maxSalary)
+}

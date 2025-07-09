@@ -1,0 +1,2 @@
+SELECT MIN(s.salary) AS min_salary, MAX(s.salary) AS max_salary
+FROM salaries s;

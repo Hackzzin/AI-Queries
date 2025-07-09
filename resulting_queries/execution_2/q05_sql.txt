@@ -1,0 +1,2 @@
+SELECT COUNT(DISTINCT title) AS total_titles
+FROM titles;

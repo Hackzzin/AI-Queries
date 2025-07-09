@@ -1,0 +1,13 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT (COUNT(DISTINCT ?c) as ?count)
+WHERE {
+  ?c a owl:Class .
+  FILTER (?c != <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentEmployee>)
+  FILTER (?c != <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager>)
+  FILTER (?c != <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee>)
+  FILTER (?c != <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Salary>)
+  FILTER (?c != <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Title>)
+}

@@ -5,7 +5,7 @@ from pathlib import Path
 # Paths
 base_dir = Path(__file__).parent
 resources = base_dir / "resources"
-output_dir = base_dir / "resulting_queries"
+output_dir = base_dir / "resulting_queries/execution_5"
 output_dir.mkdir(exist_ok=True)
 
 # Load input files

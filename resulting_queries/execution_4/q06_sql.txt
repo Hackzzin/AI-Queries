@@ -1,0 +1,7 @@
+SELECT COUNT(*) AS total_masculinos
+FROM employees
+WHERE gender = 'M';
+
+SELECT COUNT(*) AS total_femininos
+FROM employees
+WHERE gender = 'F';

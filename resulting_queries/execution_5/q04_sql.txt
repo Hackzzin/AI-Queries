@@ -1,0 +1,8 @@
+```
+SELECT MIN(s.salary) AS min_salary, MAX(s.salary) AS max_salary
+FROM salaries s
+WHERE s.emp_no IN (
+  SELECT dm.emp_no
+  FROM dept_manager dm
+);
+```

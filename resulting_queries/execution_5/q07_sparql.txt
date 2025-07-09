@@ -1,0 +1,16 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?dept ?title (AVG(?salary) AS ?avg_salary)
+WHERE {
+  ?dept a owl:Class .
+  ?dept employees#Department .
+  ?emp employees#Employee ; employees#hasDeptNumber ?deptNo .
+  ?emp employees#from_date ?fromDate ; employees#to_date ?toDate .
+  ?emp employees#salary ?salary .
+  ?emp employees#title ?title .
+  ?dept employees#dept_no ?deptNo .
+  FILTER(?dept = <http://www.semanticweb.org/usuario/ontologies/2025/6/employees?#> && ?fromDate <= ?toDate)
+  GROUP BY ?dept ?title
+}

@@ -1,0 +1,14 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?dept ?title (AVG(?salary) AS ?avg_salary)
+WHERE {
+  ?dept a owl:Class .
+  ?dept <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#dept_no> ?dept_no .
+  ?emp <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasDeptNumber> ?dept .
+  ?emp <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#salary> ?salary .
+  ?emp <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#title> ?title .
+  FILTER (?dept = <http://www.semanticweb.org/usuario/ontologies/2025/6/employees?#Department> && ?title != "")
+GROUP BY ?dept ?title
+ORDER BY ?dept ?avg_salary DESC
+```

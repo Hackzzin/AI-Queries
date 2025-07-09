@@ -1,0 +1,17 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?manager ?salary
+WHERE {
+  ?department a owl:Class .
+  ?manager a owl:Class ;
+           rdfs:subClassOf <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager> .
+  ?employee a owl:Class ;
+            rdfs:subClassOf <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> .
+  ?manager owl:hasManager ?department .
+  ?employee owl:hasEmpNo ?emp_no .
+  ?emp_date xsd:dateTime ?start_date .
+  FILTER (?emp_date <= "1990-12-31T23:59:59Z"^^xsd:dateTime && xsd:date(?start_date) < "1991-01-01"^^xsd:date) .
+  ?manager owl:hasSalary ?salary .
+}

@@ -1,0 +1,11 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?emp_no ?first_name ?last_name ?birth_date
+WHERE {
+  ?employee <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasEmployeeNumber> ?emp_no .
+  ?employee <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasGender> ?gender .
+  ?employee <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#birth_date> ?birth_date .
+  FILTER (?birth_date < "1986-01-01"^^xsd:dateTime) .
+}

@@ -1,0 +1,20 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?manager ?salary
+WHERE {
+  ?department a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Department>;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#from_date> ?from_date;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#to_date> ?to_date.
+  ?manager a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager>;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#from_date> ?from_date;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#to_date> ?to_date.
+  FILTER (?from_date <= xsd:dateTime("1991-01-01T00:00:00") && xsd:integer(?salary) > 0).
+  ?employee a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentEmployee>;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#from_date> ?from_date;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#to_date> ?to_date;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasManager> ?manager;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#salary> ?salary.
+  FILTER (?employee = ?manager).
+}

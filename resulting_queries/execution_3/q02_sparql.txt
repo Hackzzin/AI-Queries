@@ -1,0 +1,8 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT DISTINCT ?salary AS maxSalary, MIN(?salary) AS minSalary
+WHERE {
+  ?employee <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasEmployeeNumber> ?empNo .
+  ?employee <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#has_salary> ?salary .
+  FILTER (?salary xsd:integer) .
+} GROUP BY ?salary ORDER BY DESC(?maxSalary), ASC(?minSalary) LIMIT 2

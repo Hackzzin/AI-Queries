@@ -1,0 +1,14 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?emp ?dept ?salary
+WHERE {
+  ?emp a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee>.
+  ?emp <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasDeptNumber> ?dept.
+  ?dept <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#dept_name> ?name.
+  ?emp <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#from_date> ?fromDate.
+  ?emp <http://www.semanticweb.org/usuario/ontologies/2025/6/employees/to_date> ?toDate.
+  ?emp <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#salary> ?salary.
+  FILTER (?fromDate <= xsd:dateTime("9999-12-31T23:59:59.000Z") && ?toDate >= xsd:dateTime("1970-01-01T00:00:00.000Z"))
+}

@@ -1,0 +1,12 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?salaryMin as "Salarial Minimum", ?salaryMax as "Salarial Maximum"
+WHERE {
+  ?deptManager a <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#DepartmentManager>;
+    <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasSalary> ?salary .
+  FILTER(?salary > ?salaryMin AND ?salary < ?salaryMax)
+}
+GROUP BY ?salaryMin, ?salaryMax
+ORDER BY ?salaryMin, ?salaryMax

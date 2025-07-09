@@ -1,0 +1,13 @@
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?employee ?deptName ?salary
+WHERE {
+  ?employee a owl:Employee .
+  ?dept a owl:Department ; owl:hasDeptNumber ?deptNo .
+  ?emp_has_dept [owl:someValuesFrom ?dept; owl:onProperty <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasDeptNumber>] -> ?employee .
+  ?salary a owl:Salary ; owl:onProperty <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#salary> .
+  ?emp_has_salary [owl:someValuesFrom ?salary; owl:onProperty <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#hasEmployeeNumber>] -> ?employee .
+  FILTER (?from_date <= xsd:dateTime("2025-12-31T00:00:00") && ?to_date >= xsd:dateTime("2025-01-01T00:00:00"))
+} ORDER BY ?employee ?deptName ?salary

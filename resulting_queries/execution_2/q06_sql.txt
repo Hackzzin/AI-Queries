@@ -1,0 +1,4 @@
+SELECT COUNT(*), 
+       CASE gender WHEN 'M' THEN 1 ELSE 0 END AS men,
+       CASE gender WHEN 'F' THEN 1 ELSE 0 END AS women
+FROM employees;

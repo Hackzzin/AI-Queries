@@ -1,0 +1,17 @@
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT ?maxSalary ?minSalary
+WHERE {
+  ?s a owl:DatatypeProperty ;
+     rdfs:range xsd:integer .
+  ?o a owl:Class ; 
+     rdfs:subClassOf <http://www.semanticweb.org/usuario/ontologies/2025/6/employees#Employee> .
+  ?salary a ?s ;
+           owl:hasValue ?value .
+  FILTER(?value > 0) .
+  GROUP BY ?s
+  HAVING (MAX(?value) AS ?maxSalary)
+       AND (MIN(?value) AS ?minSalary)
+}
