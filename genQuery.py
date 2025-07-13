@@ -28,7 +28,7 @@ perguntas = ["Quais são os nomes de todos os departamentos?",
 
 def generate_query_SQL(question, context, query_type):
     prompt = f"""
-Dada uma base de dados descrita pelo DDL a seguir: {query_type.upper()} query que responda à pergunta abaixo.
+Dada uma base de dados descrita pelo DDL a seguir:
 
 {context}
 
@@ -52,7 +52,7 @@ Escreva uma {query_type.upper()} query que responda à pergunta abaixo. Responda
     
 def generate_query_SPARQL(question, context, query_type):
     prompt = f"""
-Dada uma base de dados descrita pelo DDL a seguir: {query_type.upper()} query que responda à pergunta abaixo.
+Dada uma base de dados descrita pelo ontologia a seguir:
 
 {context}
 
